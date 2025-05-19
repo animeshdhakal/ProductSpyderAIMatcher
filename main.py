@@ -188,7 +188,7 @@ async def main():
         await run_scraper()
         sync_to_server()
         logging.info("Sleeping for 1 hour")
-        await asyncio.sleep(60 * 60)
+        await asyncio.sleep(10 * 60)
 
 
 if __name__ == "__main__":
