@@ -72,7 +72,7 @@ def sync_to_server():
         logging.info("Failed to sync to server")
 
 
-async def process_competitor(browser, competitor_id, url, client_url):
+async def process_competitor(browser: zd.Browser, competitor_id, url, client_url):
     cursor = db.cursor()
 
     logging.info("Processing competitor_id: %s", competitor_id)
@@ -83,7 +83,7 @@ async def process_competitor(browser, competitor_id, url, client_url):
 
     await random_delay(page)
 
-    deep_search_button = await page.find("DeepSearch", best_match=True)
+    deep_search_button = await page.find("DeepSearch", best_match=True, timeout=20)
     await deep_search_button.mouse_click()
 
     prompt = f"Determine if this page {url} is a Category page containing multiple products or an individual Product page. If it is a Category page and then no need to proceed further, terminate your processing and report ANSWER as NO If it is a Product page then compare with this product page {client_url} to determine if they are identical for price-matching. Use product identifiers (SKU, MPN, UPC, GTIN), photos, and descriptions for verification, noting that retailers and manufacturers may interchange these identifiers. If it is a match then report ANSWER as YES otherwise report ANSWER as NO\n"
