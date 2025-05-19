@@ -154,15 +154,8 @@ async def process_competitor(browser: zd.Browser, competitor_id, url, client_url
         # Wait longer to ensure Grok processes the request
         await page.sleep(2.5 * 60)
 
-        # Check if we need to reload
-        try:
-            # Verify if the page is still responsive
-            await page.find("body", timeout=5)
-        except Exception:
-            logging.info("Page might be unresponsive, reloading")
-            await page.reload()
+        await page.reload()
 
-        await page.sleep(5)
         await random_delay(page)
 
         # Try to find textarea after reload with more robust approach
