@@ -85,11 +85,26 @@ wheels = [
 ]
 
 [[package]]
+name = "nodriver"
+version = "0.46.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "deprecated" },
+    { name = "mss" },
+    { name = "websockets" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/4c/5f/10cdc4b40c356d0f94a0b59ca16511dfb2993cea4f47b60c370a314dd010/nodriver-0.46.1.tar.gz", hash = "sha256:cc5c9e4b030924ba08ac4f8227bf6426b145e2a40e5ae9ff0053bae097bce38d", size = 332362, upload-time = "2025-05-16T16:11:02.778Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/04/f8/b9bc0f97218e61a29401c85a0375b2198b3638c44318182cafae24c12286/nodriver-0.46.1-py3-none-any.whl", hash = "sha256:cde4e1ad4405610394051d305161dbb3e8976b56c76a6985d316e8e947df25d8", size = 354157, upload-time = "2025-05-16T16:10:59.081Z" },
+]
+
+[[package]]
 name = "productspyderaimatcher"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "curl-cffi" },
+    { name = "nodriver" },
     { name = "python-dotenv" },
     { name = "zendriver" },
 ]
@@ -97,6 +112,7 @@ dependencies = [
 [package.metadata]
 requires-dist = [
     { name = "curl-cffi", specifier = ">=0.11.1" },
+    { name = "nodriver", specifier = ">=0.46.1" },
     { name = "python-dotenv", specifier = ">=1.1.0" },
     { name = "zendriver", specifier = ">=0.7.1" },
 ]
