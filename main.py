@@ -155,8 +155,6 @@ async def process_competitor(browser, competitor_id, url, client_url):
 async def run_scraper():
     logging.info("Starting AI Queue")
 
-    db = sqlite3.connect("ai_queue.db")
-
     cur = db.cursor()
 
     cur.execute("SELECT * FROM ai_queue WHERE tracking = 'PROCESSING'")
@@ -179,7 +177,6 @@ async def run_scraper():
             logging.error(traceback.format_exc())
 
     await browser.stop()
-    db.close()
 
 
 async def main():
