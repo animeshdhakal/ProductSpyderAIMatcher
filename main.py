@@ -70,6 +70,7 @@ def sync_to_server():
         logging.info("Synced to server successfully")
     else:
         logging.info("Failed to sync to server")
+        logging.info(response.json())
 
 
 async def process_competitor(browser: zd.Browser, competitor_id, url, client_url):
